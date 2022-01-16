@@ -16,4 +16,6 @@ router.post('/activation', userCtrl.activateEmail);
 
 router.post('/login', userCtrl.login);
 
+router.post('/forgot', userCtrl.forgotPassword)
+
 module.exports = router;

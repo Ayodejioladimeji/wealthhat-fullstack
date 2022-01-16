@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 const sendMail = require('./sendMail');
+const passwordMail = require('./passwordMail');
 
 const { CLIENT_URL } = process.env;
 
@@ -103,6 +104,23 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+
+  // The section of the forgot password
+  forgotPassword: async (req, res)=> {
+    try {
+      const {email} = req.body
+    const user = await User.findOne({email})
+    if(!user) return res.status(400).json({msg: "This email does not exist!"})
+
+    const access_token = createAccessToken({id: user._id})
+    const url = `${CLIENT_URL}/api/reset/${access_token}`
+    
+    passwordMail(email, url, "Reset your password")
+    res.json({msg: "Please check your email to continue"})
+    } catch (error) {
+      res.status(500).json({msg:error.message})
+    }
+  }
 };
 
 // ===============================================================
