@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 const sendMail = require('./sendMail');
 const passwordMail = require('./passwordMail');
+const { resetWatchers } = require('nodemon/lib/monitor/watch');
 
 const { CLIENT_URL } = process.env;
 
@@ -85,10 +86,10 @@ const userCtrl = {
 
       const user = await User.findOne({ email });
       if (!user)
-        return res.status(400).json({ msg: 'User information does not exist' });
+        return res.status(400).json({ msg: 'Invalid Credentials' });
 
       const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) return res.status(400).json({ msg: 'Incorrect Password' });
+      if (!isMatch) return res.status(400).json({ msg: 'Invalid Credentials' });
 
       // If login success , create refresh token
       const refresh_token = createRefreshToken({ id: user._id });
@@ -102,6 +103,24 @@ const userCtrl = {
       res.json({ msg: 'Login success!' });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
+    }
+  },
+
+  // The section of get access token
+  getAccessToken: (req, res) => {
+    try {
+      const rf_token = req.cookies.refreshtoken
+      if(!rf_token) res.status(400).json({msg: "Please Login to continue"})
+
+      jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
+        if(err) return res.status(400).json({msg: "Please Login again"})
+
+        const access_token = createAccessToken({id: user.id})
+
+        res.json({access_token})
+      })
+    } catch (error) {
+      res.status(500).json({msg:error.message})
     }
   },
 
@@ -129,7 +148,6 @@ const userCtrl = {
       const {password} = req.body
       const passwordHash = await bcrypt.hash(password, 12)
 
-      console.log(req.user.id)
 
       await User.findOneAndUpdate({_id:req.user.id}, {
         password:passwordHash
