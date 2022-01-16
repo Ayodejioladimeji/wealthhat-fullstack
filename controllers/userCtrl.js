@@ -120,6 +120,25 @@ const userCtrl = {
     } catch (error) {
       res.status(500).json({msg:error.message})
     }
+  },
+  
+
+  // The section of the reset password
+  resetPassword: async (req, res) => {
+    try {
+      const {password} = req.body
+      const passwordHash = await bcrypt.hash(password, 12)
+
+      console.log(req.user.id)
+
+      await User.findOneAndUpdate({_id:req.user.id}, {
+        password:passwordHash
+      })
+
+      res.json({msg:"Password changed successfully"})
+    } catch (error) {
+      res.status(500).json({msg:error.message})
+    }
   }
 };
 

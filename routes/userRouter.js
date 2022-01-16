@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const userCtrl = require('../controllers/userCtrl');
 const { check } = require('express-validator');
+const auth = require('../middlewares/auth')
 
 router.post(
   '/register',
@@ -17,5 +18,7 @@ router.post('/activation', userCtrl.activateEmail);
 router.post('/login', userCtrl.login);
 
 router.post('/forgot', userCtrl.forgotPassword)
+
+router.post('/reset',auth, userCtrl.resetPassword)
 
 module.exports = router;
