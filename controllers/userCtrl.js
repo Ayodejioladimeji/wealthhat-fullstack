@@ -186,6 +186,7 @@ const userCtrl = {
         monthofbirth,
         yearofbirth,
         phone,
+        riskProfile,
         address,
         bvn,
         accountNumber,
@@ -204,6 +205,7 @@ const userCtrl = {
           monthofbirth,
           yearofbirth,
           phone,
+          riskProfile,
           address,
           bvn,
           accountNumber,
@@ -216,6 +218,39 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+
+  // The section of the portfolio
+  userPortfolio: async (req, res) => {
+    try{
+      const user = await User.findOne({user: req.user.id})
+
+      user.portfolio.unshift(req.body)
+
+      await user.save()
+      res.json(user)
+    }
+    catch(err){
+      res.status(500).json({msg: err.message})
+    }
+  },
+
+  // The section of the payment transactions
+  payment:async (req, res) => {
+    try{
+      const user = await User.findOne({user: req.user.id})
+
+
+      user.portfolio.map(item => {
+        return item.transactions.unshift(req.body)
+      })
+
+      await user.save()
+      res.json({msg: "Transaction Successful ", user})
+    }
+    catch(err){
+      res.status(500).json({msg: err.message})
+    }
+  }
 };
 
 // ===============================================================

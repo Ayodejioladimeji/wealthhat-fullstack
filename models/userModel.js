@@ -50,6 +50,10 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: '',
     },
+    riskProfile: {
+      type: String,
+      default: '',
+    },
     address: {
       type: String,
       default: '',
@@ -70,6 +74,57 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 0, // 0=user, 1=admin
     },
+    portfolio:[
+      {
+        savingFor:{
+          type:String,
+          default:''
+        },
+        portName:{
+          type:String,
+          default:''
+        },
+        target:{
+          type:String,
+          default:''
+        },
+        years:{
+          type:String,
+          default:''
+        },
+        starting:{
+          type:String,
+          default:''
+        },
+        monthly:{
+          type:String,
+          default:''
+        },
+        transactions:[
+          { 
+            amount:{
+              type:String,
+              default:''
+            },
+            withdraw:{
+              type:String,
+              default:''
+            },
+            total:{
+              type:String,
+              default:''
+            },
+            date:{
+              type:Date,
+              default:Date.now
+            }
+          },
+          {
+            timestamps: true,
+          }
+        ]
+      }
+    ]
   },
   {
     timestamps: true,

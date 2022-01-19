@@ -27,4 +27,8 @@ router.get('/user', auth, userCtrl.getUser);
 
 router.patch('/update', auth, userCtrl.updateUser);
 
+router.put('/portfolio', auth, userCtrl.userPortfolio)
+
+router.put('/payment', auth, userCtrl.payment)
+
 module.exports = router;
