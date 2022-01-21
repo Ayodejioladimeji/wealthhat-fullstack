@@ -3,6 +3,7 @@ const userCtrl = require('../controllers/userCtrl');
 const { check } = require('express-validator');
 const auth = require('../middlewares/auth');
 
+// ALL POST REQUEST
 router.post(
   '/register',
   check('email', 'Please include a valid email').isEmail(),
@@ -23,12 +24,21 @@ router.post('/forgot', userCtrl.forgotPassword);
 
 router.post('/reset', auth, userCtrl.resetPassword);
 
-router.get('/user', auth, userCtrl.getUser);
 
+// ALL GET REQUEST
+router.get('/user', auth, userCtrl.getUser);
+router.get('/logout', auth, userCtrl.logout)
+
+
+// ALL PATCH REQUEST
 router.patch('/update', auth, userCtrl.updateUser);
 
+
+// ALL PUT REQUEST
 router.put('/portfolio', auth, userCtrl.userPortfolio)
 
 router.put('/payment', auth, userCtrl.payment)
+
+
 
 module.exports = router;

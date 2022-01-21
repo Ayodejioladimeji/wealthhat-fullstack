@@ -99,7 +99,7 @@ const userCtrl = {
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30days
       });
 
-      res.json({ msg: 'Login success!' });
+      res.json({ msg: 'Login successful!', user });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -222,7 +222,7 @@ const userCtrl = {
   // The section of the portfolio
   userPortfolio: async (req, res) => {
     try{
-      const user = await User.findOne({user: req.user.id})
+      const user = await User.findOne({_id: req.user.id})
 
       user.portfolio.unshift(req.body)
 
@@ -237,7 +237,7 @@ const userCtrl = {
   // The section of the payment transactions
   payment:async (req, res) => {
     try{
-      const user = await User.findOne({user: req.user.id})
+      const user = await User.findOne({_id: req.user.id})
 
 
       user.portfolio.map(item => {
@@ -249,6 +249,16 @@ const userCtrl = {
     }
     catch(err){
       res.status(500).json({msg: err.message})
+    }
+  },
+
+  //  The section that logs out userCtrl
+  logout: async(req, res) => {
+    try {
+      res.clearCookie('refreshtoken', {path: '/api/refresh_token'})
+      return res.json({msg: "Logged Out"})
+    } catch (error) {
+      res.status(500).json({msg: error.message})
     }
   }
 };

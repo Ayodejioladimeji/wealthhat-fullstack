@@ -42,8 +42,88 @@ const sendEmail = (to, url, txt) => {
     subject: 'Wealthhat',
     html: `
     
-     <div style="max-width: 700px; margin: 0 auto" background:#fff;>
-      <div style="text-align: center; padding: 12px">
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .containers {
+        max-width: 700px;
+        margin: 0 auto;
+        background: #fff;
+      }
+
+      .image-box {
+        text-align: center;
+        padding: 12px;
+      }
+
+      .container-one {
+        background: #2e8c47;
+        padding: 40px 10px;
+      }
+
+      .container-one p {
+        text-align: center;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-family: monospace;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .container-one h1 {
+        text-align: center;
+        font-size: 27px;
+        text-transform: uppercase;
+        font-family: monospace;
+        color: #fff;
+      }
+
+      .container-two {
+        padding: 10px 15px;
+        line-height: 25px;
+      }
+
+      .container-two p {
+        font-family: monospace;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .inner-container {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      .inner-container a button {
+        background: #2e8c47;
+        padding: 15px 50px;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      /* THE SECTION OF THE MEDIA QUERY */
+      @media screen and (max-width:500px){
+        .container-one h1{
+          font-size:20px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="containers">
+      <div class="image-box">
         <img
           src="https://res.cloudinary.com/devsource/image/upload/v1642196531/wealthhat/wealth2_hgz58l.png"
           alt="logo"
@@ -52,55 +132,21 @@ const sendEmail = (to, url, txt) => {
         />
       </div>
 
-      <div style="background: #2e8c47; padding: 40px 10px">
-        <p
-          style="
-            text-align: center;
-            font-size: 16px;
-            text-transform: uppercase;
-            font-family: monospace;
-            color: #fff;
-            font-weight: bold;
-          "
-        >
-          YOU ARE ONE STEP AWAY
-        </p>
+      <div class="container-one">
+        <p>YOU ARE ONE STEP AWAY</p>
 
-        <h1
-          style="
-            text-align: center;
-            font-size: 27px;
-            text-transform: uppercase;
-            font-family: monospace;
-            color: #fff;
-          "
-        >
-          Verify Your Email Address
-        </h1>
+        <h1>Verify Your Email Address</h1>
       </div>
 
-      <div style="padding: 10px 15px; line-height: 25px">
-        <p style="font-family: monospace; text-align: center; font-size: 12px">
+      <div class="container-two">
+        <p>
           You are almost ready to start enjoying our predefined services, Simply
           click the button below to verify your email address.
         </p>
 
-        <div style="text-align: center; margin-top: 40px; margin-bottom: 20px">
+        <div class="inner-container">
           <a href="${url}">
-            <button
-              style="
-                background: #2e8c47;
-                padding: 15px 50px;
-                border: none;
-                outline: none;
-                color: #fff;
-                font-weight: bold;
-                cursor: pointer;
-                border-radius: 5px;
-              "
-            >
-              ${txt}
-            </button>
+            <button>${txt}</button>
           </a>
         </div>
 
@@ -109,10 +155,10 @@ const sendEmail = (to, url, txt) => {
           start investing!
         </p>
 
-        <p style="font-family: monospace; margin-top: 40px">
+        <small style="font-family: monospace; margin-top: 40px">
           Sincerely, <br />
           The WealthHat Team
-        </p>
+        </small>
 
         <hr />
         <p style="text-align: center; font-family: monospace">
@@ -121,7 +167,10 @@ const sendEmail = (to, url, txt) => {
         </p>
       </div>
     </div>
+  </body>
+</html>
 
+    
         `,
   };
 

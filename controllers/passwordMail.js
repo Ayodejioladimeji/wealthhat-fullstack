@@ -42,80 +42,131 @@ const sendEmail = (to, url, txt) => {
     subject: 'Wealthhat',
     html: `
     
-     <div style="max-width: 700px; margin: 0 auto" background:#fff;>
-      <div style="text-align: center; padding: 12px">
-        <img
-          src="https://res.cloudinary.com/devsource/image/upload/v1642196531/wealthhat/wealth2_hgz58l.png"
-          alt="logo"
-          height="30"
-          width="150"
-        />
-      </div>
-
-      <div style="background: #2e8c47; padding: 40px 10px">
-        <p
-          style="
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    
+        <style>
+          .containers {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+          }
+    
+          .image-box {
+            text-align: center;
+            padding: 12px;
+          }
+    
+          .container-one {
+            background: #2e8c47;
+            padding: 40px 10px;
+          }
+    
+          .container-one p {
             text-align: center;
             font-size: 16px;
             text-transform: uppercase;
             font-family: monospace;
             color: #fff;
             font-weight: bold;
-          "
-        >
-          Forgot your Password?
-        </p>
-
-        <h1
-          style="
+          }
+    
+          .container-one h1 {
             text-align: center;
             font-size: 27px;
             text-transform: uppercase;
             font-family: monospace;
             color: #fff;
-          "
-        >
-          Change Password Link
-        </h1>
-      </div>
-
-      <div style="padding: 10px 15px; line-height: 25px">
-        <p style="font-family: monospace; text-align: center; font-size: 12px">
-          You requested to reset your password, Please confirm the action by clicking the button below
-        </p>
-
-        <div style="text-align: center; margin-top: 40px; margin-bottom: 20px">
-          <a href="${url}">
-            <button
-              style="
-                background: #2e8c47;
-                padding: 15px 50px;
-                border: none;
-                outline: none;
-                color: #fff;
-                font-weight: bold;
-                cursor: pointer;
-                border-radius: 5px;
-              "
-            >
-              ${txt}
-            </button>
-          </a>
+          }
+    
+          .container-two {
+            padding: 10px 15px;
+            line-height: 25px;
+          }
+    
+          .container-two p {
+            font-family: monospace;
+            text-align: center;
+            font-size: 12px;
+          }
+    
+          .inner-container {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+          }
+    
+          .inner-container a button {
+            background: #2e8c47;
+            padding: 15px 50px;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+          }
+    
+          /* THE SECTION OF THE MEDIA QUERY */
+          @media screen and (max-width:500px){
+            .container-one h1{
+              font-size:20px;
+            }
+          }
+    
+        </style>
+      </head>
+      <body>
+        <div class="containers">
+          <div class="image-box">
+            <img
+              src="https://res.cloudinary.com/devsource/image/upload/v1642196531/wealthhat/wealth2_hgz58l.png"
+              alt="logo"
+              height="30"
+              width="150"
+            />
+          </div>
+    
+          <div class="container-one">
+            <p>Forgot your password?</p>
+    
+            <h1>Change Password Link</h1>
+          </div>
+    
+          <div class="container-two">
+            <p>
+              You requested to reset your password, Please confirm the action by clicking the button below
+            </p>
+    
+            <div class="inner-container">
+              <a href="${url}">
+                <button>${txt}</button>
+              </a>
+            </div>
+    
+    
+            <small
+              style="font-family: monospace; margin-top: 40px">
+              Sincerely, <br />
+              The WealthHat Team
+            </small
+             >
+    
+            <hr />
+            <p style="text-align: center; font-family: monospace">
+              If you did not enter this email address when signing up for WealthHat,
+              kindly disregard this message. Thanks!
+            </p>
+          </div>
         </div>
-
-
-        <p style="font-family: monospace; margin-top: 40px">
-          Sincerely, <br />
-          The WealthHat Team
-        </p>
-
-        <hr />
-        <p style="text-align: center; font-family: monospace">
-          If you did not enter this email address when signing up for WealthHat,
-          kindly disregard this message. Thanks!
-        </p>
-      </div>
-    </div>
+      </body>
+    </html>
+    
 
         `,
   };
