@@ -85,8 +85,7 @@ const userCtrl = {
       const { email, password } = req.body;
 
       const user = await User.findOne({ email });
-      if (!user)
-        return res.status(400).json({ msg: 'Invalid Credentials' });
+      if (!user) return res.status(400).json({ msg: 'Invalid Credentials' });
 
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) return res.status(400).json({ msg: 'Invalid Credentials' });
@@ -109,53 +108,147 @@ const userCtrl = {
   // The section of get access token
   getAccessToken: (req, res) => {
     try {
-      const rf_token = req.cookies.refreshtoken
-      if(!rf_token) res.status(400).json({msg: "Please Login to continue"})
+      const rf_token = req.cookies.refreshtoken;
+      if (!rf_token)
+        return res.status(400).json({ msg: 'Please Login to continue' });
 
       jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
-        if(err) return res.status(400).json({msg: "Please Login again"})
+        if (err) return res.status(400).json({ msg: 'Please Login again' });
 
-        const access_token = createAccessToken({id: user.id})
+        const access_token = createAccessToken({ id: user.id });
 
-        res.json({access_token})
-      })
+        res.json({ access_token });
+      });
     } catch (error) {
-      res.status(500).json({msg:error.message})
+      res.status(500).json({ msg: error.message });
     }
   },
 
   // The section of the forgot password
-  forgotPassword: async (req, res)=> {
+  forgotPassword: async (req, res) => {
     try {
-      const {email} = req.body
-    const user = await User.findOne({email})
-    if(!user) return res.status(400).json({msg: "This email does not exist!"})
+      const { email } = req.body;
+      const user = await User.findOne({ email });
+      if (!user)
+        return res.status(400).json({ msg: 'This email does not exist!' });
 
-    const access_token = createAccessToken({id: user._id})
-    const url = `${CLIENT_URL}/api/reset/${access_token}`
-    
-    passwordMail(email, url, "Reset your password")
-    res.json({msg: "Please check your email to continue"})
+      const access_token = createAccessToken({ id: user._id });
+      const url = `${CLIENT_URL}/api/reset/${access_token}`;
+
+      passwordMail(email, url, 'Reset your password');
+      res.json({ msg: 'Please check your email to continue' });
     } catch (error) {
-      res.status(500).json({msg:error.message})
+      res.status(500).json({ msg: error.message });
     }
   },
-  
 
   // The section of the reset password
   resetPassword: async (req, res) => {
     try {
-      const {password} = req.body
-      const passwordHash = await bcrypt.hash(password, 12)
+      const { password } = req.body;
+      const passwordHash = await bcrypt.hash(password, 12);
+
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          password: passwordHash,
+        }
+      );
+
+      res.json({ msg: 'Password changed successfully' });
+    } catch (error) {
+      res.status(500).json({ msg: error.message });
+    }
+  },
+
+  // The section that gets the single user Information
+  getUser: async (req, res) => {
+    try {
+      const user = await User.findById(req.user.id).select('-password');
+      if (!user) return res.status(400).json({ msg: 'User does not exist' });
+
+      res.json(user);
+    } catch (error) {
+      res.status(500).json({ msg: error.message });
+    }
+  },
+
+  // The section of the update users
+  updateUser: async (req, res) => {
+    try {
+      const {
+        title,
+        firstname,
+        lastname,
+        gender,
+        nationality,
+        dayofbirth,
+        monthofbirth,
+        yearofbirth,
+        phone,
+        riskProfile,
+        address,
+        bvn,
+        accountNumber,
+        bank,
+      } = req.body;
+
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          title,
+          firstname,
+          lastname,
+          gender,
+          nationality,
+          dayofbirth,
+          monthofbirth,
+          yearofbirth,
+          phone,
+          riskProfile,
+          address,
+          bvn,
+          accountNumber,
+          bank,
+        }
+      );
+
+      res.json({ msg: 'Update Success' });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+
+  // The section of the portfolio
+  userPortfolio: async (req, res) => {
+    try{
+      const user = await User.findOne({user: req.user.id})
+
+      user.portfolio.unshift(req.body)
+
+      await user.save()
+      res.json(user)
+    }
+    catch(err){
+      res.status(500).json({msg: err.message})
+    }
+  },
+
+  // The section of the payment transactions
+  payment:async (req, res) => {
+    try{
+      const user = await User.findOne({user: req.user.id})
 
 
-      await User.findOneAndUpdate({_id:req.user.id}, {
-        password:passwordHash
+      user.portfolio.map(item => {
+        return item.transactions.unshift(req.body)
       })
 
-      res.json({msg:"Password changed successfully"})
-    } catch (error) {
-      res.status(500).json({msg:error.message})
+      await user.save()
+      res.json({msg: "Transaction Successful ", user})
+    }
+    catch(err){
+      res.status(500).json({msg: err.message})
     }
   }
 };

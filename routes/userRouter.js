@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const userCtrl = require('../controllers/userCtrl');
 const { check } = require('express-validator');
-const auth = require('../middlewares/auth')
+const auth = require('../middlewares/auth');
 
 router.post(
   '/register',
@@ -17,10 +17,18 @@ router.post('/activation', userCtrl.activateEmail);
 
 router.post('/login', userCtrl.login);
 
-router.post('/refresh_token', userCtrl.getAccessToken)
+router.post('/refresh_token', userCtrl.getAccessToken);
 
-router.post('/forgot', userCtrl.forgotPassword)
+router.post('/forgot', userCtrl.forgotPassword);
 
-router.post('/reset',auth, userCtrl.resetPassword)
+router.post('/reset', auth, userCtrl.resetPassword);
+
+router.get('/user', auth, userCtrl.getUser);
+
+router.patch('/update', auth, userCtrl.updateUser);
+
+router.put('/portfolio', auth, userCtrl.userPortfolio)
+
+router.put('/payment', auth, userCtrl.payment)
 
 module.exports = router;
