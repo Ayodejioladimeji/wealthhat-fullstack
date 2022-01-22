@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  flex-direction: row;
 }
 
 .home_one p {
@@ -97,9 +98,16 @@
   .home_two {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .home_three {
+    padding: 10px;
+  }
 }
 
 @media screen and (max-width: 350px) {
+  .home_one {
+    flex-direction: column;
+  }
   .home_two {
     grid-template-columns: 1fr;
   }
