@@ -1,0 +1,138 @@
+.port{
+    background:var(--white);
+    box-shadow:var(--shadoos);
+    margin-top:20px;
+    padding:30px;
+    overflow:auto;
+    position:relative;
+}
+
+.port::-webkit-scrollbar{
+    display:none;
+}
+
+
+
+.port_top{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    
+}
+
+.port_left span{
+    color:var(--secondary);
+    font-weight:600;
+    font-size:var(--font-smalling);
+}
+
+.angle_icon{
+    font-size:var(--font-smalling);
+    font-weight:normal;
+    color:var(--secondary);
+    margin-left:15px;
+    margin-top:-2px
+}
+
+.port_left small{
+    font-size:var(--font-smalling)
+}
+
+
+/*  */
+.port_right{
+    cursor:pointer;
+}
+
+/*  */
+.port_middle{
+    background:var(--agree);
+    margin-top:20px;
+    padding:10px;
+}
+
+.port_middle small{
+font-weight:600;
+}
+
+.port_middle span{
+    color:var(--non-active);
+    font-size: var(--font-smalling);
+}
+
+.port_times{
+    margin-right:5px;
+    color:red;
+    margin-top:-2px;
+}
+
+/*  */
+.port_bottom{
+    margin-top:20px;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.bottom_left{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.bottom_left_div{
+    background:var(--white);
+    padding:10px;
+    text-align:center;
+}
+
+.bottom_left_div span{
+    color:var(--non-active);
+    font-size:var(--font-smalling)
+}
+
+.bottom_left_div small{
+    display: block;
+    color:var(--primary);
+    font-weight:600;
+    font-size:var(--font-small)
+}
+
+.bottom_right button{
+    background:var(--primary);
+    color:var(--white);
+    font-size:var(--font-smalling)
+}
+
+.bottom_right button:hover{
+    background:var(--secondary);
+    color:var(--white)
+}
+
+/* THE SECTION OF THE DROPDOWN */
+.drop_downs{
+    position:absolute;
+    right:30px;
+    top:23%;
+    padding:10px;
+    box-shadow:var(--shadoos);
+    border-radius:3px;
+    background:var(--white);
+    z-index:99;
+    text-align: left;
+}
+
+.drop_downs ul{
+    padding:0;
+    line-height:25px;
+}
+
+.drop_downs a, .dropdowns li{
+    color:var(--tetiary);
+    font-size:var(--font-smaller);
+    font-weight:600;
+}
+
+.drop_downs a:hover{
+    color:var(--primary)
+}

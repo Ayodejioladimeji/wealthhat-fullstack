@@ -1,0 +1,84 @@
+.setup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 90px;
+}
+
+.setup_center {
+  width: 95%;
+  box-shadow: var(--shadoos);
+  padding: 30px 0;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.setup_center h4 {
+  font-size: var(--font-small);
+  margin-bottom: 25px;
+}
+
+.setup_center_divs {
+  width: 70%;
+  padding: 0;
+  position: relative;
+}
+
+.setup_center_divs p {
+  font-size: var(--font-smalling);
+}
+
+.optional {
+  color: var(--secondary);
+  font-size: var(--font-smalling);
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.setup_buttons {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  justify-content: space-between;
+}
+
+#button {
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 3px !important;
+  margin-top: 10px;
+}
+
+#buttons {
+  background: var(--white);
+  border: 1px solid var(--primary);
+  border-radius: 3px !important;
+  margin-top: 10px;
+  color: var(--primary);
+}
+
+@media screen and (min-width: 800px) {
+  .setup_center {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 499px) {
+  .setup_buttons {
+    flex-direction: row;
+  }
+
+  .setup_center_divs {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 299px) {
+  .setup_buttons {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,201 @@
+.reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.reset_center {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+/* THE SECTION OF THE reset LEFT */
+.reset_left {
+  width: 40%;
+  background: url('/src/assets/login_background.svg');
+  background-position: center;
+  background-size: cover;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.reset_left_div {
+  width: 75%;
+  padding: 10px;
+  text-align: center;
+}
+
+.reset_left_div h1 {
+  color: var(--white);
+}
+
+.reset_left_div p {
+  color: var(--white);
+  margin-top: 20px;
+}
+
+/* THE SECTION OF THE reset RIGHT */
+.reset_right {
+  width: 100%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+  overflow:auto;
+}
+
+.reset_right::-webkit-scrollbar{
+  display:none;
+}
+
+.reset_right_div {
+  width: 90%;
+  padding: 10px;
+  /* background: orange; */
+}
+
+.reset_right_top {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reset_right_top img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.reset_right_top h4 {
+  font-size: var(--font-medium);
+}
+
+.form_group {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  top: 30%;
+  right: 12px;
+  cursor: pointer;
+  opacity: 0.3;
+  transform: translateY(33%);
+}
+
+.eyes {
+  position: absolute;
+  top: 37%;
+  right: 12px;
+  cursor: pointer;
+  opacity: 0.3;
+  transform: translateY(20%);
+}
+
+.form_group label {
+  font-size: var(--font-smalling);
+  font-weight: 700;
+  color: var(--black);
+}
+
+.form_group input {
+  border-radius: 3px;
+  border: 1px solid var(--deep);
+}
+
+.forgot {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+  font-size: var(--font-smalling);
+}
+
+.form_group button {
+  background: var(--primary);
+  color: var(--white);
+  padding: 9px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.reg {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.input_feedback {
+  color: red;
+  margin-top: -5px;
+  font-size: var(--font-smaller);
+  margin-bottom: 5px;
+}
+
+.validate {
+  padding: 10px;
+  background: var(--review-check);
+  margin: 10px 0;
+}
+
+.validate p {
+  font-size: var(--font-smalling);
+}
+
+.check {
+  font-size: var(--font-smaller);
+  color: var(--tetiary);
+  line-height: 20px;
+}
+
+.checker {
+  color: var(--primary);
+  margin-right: 5px;
+  margin-top: -2px;
+}
+
+.checking {
+  color: red;
+  margin-right: 5px;
+  margin-top: -2px;
+}
+
+/* THE SECTION OF THE MEDIA QUERY */
+
+@media screen and (min-width: 701px) {
+  .reset{
+    height:100vh;
+  }
+
+  .reset_center{
+    height:100vh;
+  }
+
+  .reset_left {
+    display: flex;
+    width: 40%;
+  }
+
+  .reset_left_div {
+    width: 90%;
+  }
+
+  .reset_right {
+    width: 60%;
+    padding-top:0
+  }
+
+  .reset_right_div {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .reset_left_div {
+    width: 70%;
+  }
+}

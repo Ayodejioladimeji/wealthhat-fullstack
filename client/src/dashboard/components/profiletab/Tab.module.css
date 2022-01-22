@@ -1,0 +1,157 @@
+.tabcontainer {
+  padding-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--white);
+  width: 100%;
+}
+
+.tabcenter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.bloctabs {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  transition: var(--transition);
+  border-bottom:1px solid var(--deep);
+}
+
+.bloctabs button {
+  width: 150px;
+  font-size: var(--font-small);
+  border: none;
+  outline: none;
+}
+
+
+
+.tabs {
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+  color: var(--non-active);
+  font-weight: 600;
+  font-size: var(--font-small);
+  background: #fff;
+}
+
+#tabs {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+  color: var(--deep);
+  font-weight: bold;
+}
+
+.activetabs {
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  font-weight: 600;
+  font-size: var(--font-small);
+  background: #fff;
+  color: var(--primary);
+  border-bottom: 1px solid var(--primary)!important;
+}
+
+
+/* ================================================= */
+/* THE SECTION OF THE CONTENT */
+.contenttabs {
+  flex-grow: 1;
+}
+
+.content {
+  background: none;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+#content {
+  background: none;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.content h2 {
+  padding: 0px 0 5px 0px;
+  font-size: 18px;
+}
+
+.content p {
+  width: 100%;
+  height: 100%;
+}
+
+
+.activecontent {
+  display: block;
+  background: none;
+  padding: 20px 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mobiletab {
+  display: none;
+}
+
+/* ================================== */
+/* THE SECTION OF THE MEDIA QUERY */
+
+@media screen and (max-width: 800px) {
+  .tabcontainer {
+    padding-top: 20px;
+  }
+
+  .tabcenter {
+    width: 95% !important;
+  }
+
+  .bloctabs {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    background: white;
+  }
+
+
+  .tabs {
+    background: none;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .activetabs {
+    background: none;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  #none {
+    display: none;
+  }
+
+  .content {
+    padding: 0;
+  }
+}

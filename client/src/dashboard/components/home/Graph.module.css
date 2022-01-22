@@ -1,0 +1,7 @@
+#chart{
+    overflow:auto;
+}
+
+#chart::-webkit-scrollbar{
+    display:none;
+}

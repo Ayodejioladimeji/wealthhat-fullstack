@@ -1,0 +1,147 @@
+.terms_info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info_center {
+  width: 80%;
+  padding: 10px 0;
+  position: relative;
+}
+
+.info_center p {
+  color: var(--black);
+  font-weight: 600;
+  padding-left: 20px;
+}
+
+.info_center small {
+  color: var(--black);
+  font-weight: 500;
+  text-align: left;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.form_div {
+  background: var(--white);
+  box-shadow: var(--shadoos);
+  margin-bottom: 40px;
+}
+
+.form_div_box {
+  padding: 20px;
+}
+
+.form_div small {
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.pdf {
+  margin-top: -3px;
+  color: var(--primary);
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.terms_one h3,
+.terms_two h3,
+.terms_three h3 {
+  font-size: var(--font-smalling);
+  color: var(--tetiary);
+  line-height: 20px;
+}
+
+.terms_one p,
+.terms_two p,
+.terms_three p {
+  padding-left: 0;
+  font-size: var(--font-smaller);
+  width: 80%;
+  margin-top: -10px;
+  color: var(--black);
+  font-weight: normal;
+}
+
+.agree {
+  background: var(--agree);
+  padding: 10px 15px;
+  font-size: var(--font-smaller);
+  display: flex;
+}
+
+.agree input[type='checkbox'] {
+  margin-top: 2px;
+  border: 1px solid var(--deep);
+  outline: none;
+  cursor: pointer;
+}
+
+.agree span {
+  margin-left: 10px;
+}
+
+/* ================================================= */
+/* The section of the media query */
+@media screen and (max-width: 700px) {
+  .info_center {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .form_div {
+    margin-bottom: 40px;
+  }
+
+  .agree input[type='checkbox'] {
+    height: 23px !important;
+    width: 23px !important;
+  }
+
+  .terms_one p,
+  .terms_two p,
+  .terms_three p {
+    width: 100%;
+  }
+
+  .birth {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .info_center {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .info_center p {
+    text-align: center;
+  }
+
+  .form_div {
+    margin-bottom: 60px;
+  }
+
+  .form_div small {
+    font-size: var(--font-smalling);
+  }
+
+  .agree input[type='checkbox'] {
+    height: 33px !important;
+    width: 33px !important;
+  }
+
+  .terms_one p,
+  .terms_two p,
+  .terms_three p {
+    width: 100%;
+    text-align: left;
+  }
+}

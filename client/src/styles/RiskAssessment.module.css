@@ -1,0 +1,51 @@
+.risk {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.risk_center {
+  width: 95%;
+  box-shadow: var(--shadoos);
+  border-radius: 3px;
+  padding: 20px 10px;
+}
+
+.risk_center h3 {
+  font-size: var(--font-small);
+  color: var(--tetiary);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.risk_center p {
+  font-size: var(--font-smalling);
+  color: var(--black);
+}
+
+.risk_button button {
+  float: right;
+  background: var(--primary);
+  font-size: var(--font-smalling);
+  color: var(--white);
+  border-radius: 0;
+}
+
+.risk_button button:hover {
+  /* background: var(--secondary); */
+  color: var(--white);
+}
+
+/* ====================================== */
+/* THE SECTION OF THE MEDIA QUERY */
+@media screen and (min-width: 950px) {
+  .risk_center {
+    width: 55%;
+    padding: 20px;
+  }
+
+  .risk_center h3 {
+    text-align: left;
+  }
+}

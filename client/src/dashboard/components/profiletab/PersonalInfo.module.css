@@ -1,0 +1,122 @@
+
+
+.info_center {
+  width: 100%;
+  padding: 10px 0;
+  position: relative;
+  /* display:none; */
+}
+
+.info_center p {
+  color: var(--black);
+  font-weight: 600;
+  padding-left: 20px;
+}
+
+.info_center small {
+  color: var(--black);
+  font-weight: 500;
+  text-align: left;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.form_div {
+  background: var(--white);
+  padding: 20px;
+  /* margin-bottom: 40px; */
+}
+
+.form_group {
+  width: 100%;
+}
+
+.form_label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight:600;
+}
+
+.form_div input {
+  padding: 8px;
+  width: 100%;
+  height: 45px !important;
+  outline: none !important;
+  border: 1px solid var(--deep);
+  background:var(--white)
+}
+
+.birth {
+  visibility: hidden;
+}
+
+/* ================================================= */
+/* The section of the media query */
+
+@media screen and (max-width: 700px) {
+  .info_center {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .form_div {
+    margin-bottom: 40px;
+    padding: 10px;
+  }
+
+  .agree {
+    margin-top: 30px !important;
+    padding: 10px 15px;
+    width: 96.2%;
+  }
+
+  .agree input[type='checkbox'] {
+    height: 23px !important;
+    width: 23px !important;
+  }
+
+  .terms_one p,
+  .terms_two p,
+  .terms_three p {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .info_center {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .info_center p {
+    text-align: center;
+  }
+
+  .form_div {
+    margin-bottom: 60px;
+    padding: 10px;
+  }
+
+  .agree {
+    margin-top: 30px !important;
+    padding: 10px;
+    width: 94.5%;
+  }
+
+  .agree input[type='checkbox'] {
+    height: 33px !important;
+    width: 33px !important;
+  }
+
+  .terms_one p,
+  .terms_two p,
+  .terms_three p {
+    width: 100%;
+  }
+
+  .sel {
+    margin-top: -20px;
+  }
+}

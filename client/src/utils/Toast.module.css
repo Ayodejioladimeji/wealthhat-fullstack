@@ -1,0 +1,61 @@
+.error_msg {
+  text-align: center;
+  min-width: 200px;
+  z-index: 500;
+  cursor: pointer;
+  box-shadow: var(--shadoos);
+  background: rgba(231, 6, 6, 0.199);
+  margin-bottom: 10px;
+  transition: var(--transition);
+}
+
+.msg_header {
+  position: relative;
+  background: rgba(255, 0, 0, 0.301);
+  color: var(--white);
+  text-align: left;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  text-align: center;
+  font-weight: 600;
+}
+
+.body {
+  padding: 5px 10px;
+  font-size: 13px;
+  color: red;
+}
+
+.success_msg {
+  text-align: center;
+  min-width: 200px;
+  z-index: 500;
+  cursor: pointer;
+  box-shadow: var(--shadoos);
+  background: rgba(9, 158, 54, 0.226);
+  color: var(--white);
+  margin-bottom: 10px;
+  transition: var(--transition);
+}
+
+.success_header {
+  position: relative;
+  background: rgba(9, 158, 54, 0.308);
+  color: var(--white);
+  text-align: left;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.success_body {
+  padding: 5px 10px;
+  font-size: 13px;
+  color: green;
+}

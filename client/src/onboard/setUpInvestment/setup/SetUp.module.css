@@ -1,0 +1,132 @@
+.setup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 90px;
+}
+
+.setup_center {
+  width: 95%;
+  box-shadow: var(--shadoos);
+  padding: 30px 0;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.setup_center h3 {
+  font-size: var(--font-small);
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: var(--font-small);
+  font-weight: 600;
+}
+
+.setup_center h4 {
+  font-size: var(--font-small);
+  margin-bottom: 25px;
+}
+
+.setupbox {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.5rem;
+  padding: 0;
+}
+
+.setupbox div {
+  width: 140px;
+  height: 40px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.setupbox label,
+.setupbox input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.setupbox input[type='radio'] {
+  opacity: 0.01;
+  z-index: 100;
+}
+
+.setupbox input[type='radio']:checked + label,
+.Checked + label {
+  background: var(--primary);
+  color: var(--white);
+  /* height:40px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.setupbox label {
+  padding: 5px;
+  border: 1px solid var(--deep);
+  cursor: pointer;
+  z-index: 90;
+  text-align: center;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.setup_buttons {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  justify-content: space-between;
+}
+
+#button {
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 3px !important;
+  margin-top: 10px;
+}
+
+#buttons {
+  background: var(--white);
+  border: 1px solid var(--primary);
+  border-radius: 3px !important;
+  margin-top: 10px;
+  color: var(--primary);
+}
+
+@media screen and (min-width: 500px) {
+  .setupbox {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .setup_center {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 499px) {
+  .setupbox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .setup_buttons {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 299px) {
+  .setup_buttons {
+    flex-direction: column;
+  }
+}

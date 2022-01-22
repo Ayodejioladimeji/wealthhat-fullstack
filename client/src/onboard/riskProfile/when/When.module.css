@@ -1,0 +1,132 @@
+.when {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.when_center {
+  width: 80%;
+  padding: 10px 0;
+  position: relative;
+}
+
+.when_center p {
+  color: var(--black);
+  font-weight: 600;
+  font-size: var(--font-small);
+}
+
+.when_center small {
+  color: var(--black);
+  font-weight: 500;
+  text-align: left;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.form_div {
+  background: var(--white);
+  box-shadow: var(--shadoos);
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.forming {
+  border: 1px solid var(--deep);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.forming span {
+  font-size: var(--font-smalling);
+}
+
+.forming input[type='radio'] {
+  margin-left: 15px;
+  background: red !important;
+}
+/* ===================================== */
+
+.forming input[type='radio'] {
+  visibility: hidden;
+}
+
+.forming input[type='radio']::before {
+  border: 2px solid var(--primary);
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  display: block;
+  content: ' ';
+  cursor: pointer;
+  visibility: visible;
+}
+
+.forming input[type='radio']:checked::before {
+  border-radius: 50%;
+  background: radial-gradient(var(--primary) 36%, transparent 38%);
+}
+
+/* ====================================== */
+progress {
+  -webkit-appearance: none;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+::-webkit-progress-bar {
+  background: var(--deep);
+  border-radius: 18px;
+  height: 7px;
+}
+
+::-webkit-progress-value {
+  background: var(--primary);
+  border-radius: 8px;
+}
+
+.progress_strength small {
+  font-size: var(--font-smallest);
+  margin-top: -10px;
+}
+
+.form_div span {
+  font-size: var(--font-smalling);
+}
+
+/* ================================================= */
+/* The section of the media query */
+@media screen and (max-width: 700px) {
+  .when_center {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .form_div {
+    margin-bottom: 40px;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .when_center {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .when_center p {
+    text-align: center;
+  }
+
+  .form_div {
+    margin-bottom: 60px;
+    padding: 10px;
+  }
+}
