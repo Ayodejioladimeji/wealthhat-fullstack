@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 const sendMail = require('./sendMail');
 const passwordMail = require('./passwordMail');
-const { resetWatchers } = require('nodemon/lib/monitor/watch');
 
 const { CLIENT_URL } = process.env;
 
@@ -221,46 +220,43 @@ const userCtrl = {
 
   // The section of the portfolio
   userPortfolio: async (req, res) => {
-    try{
-      const user = await User.findOne({_id: req.user.id})
+    try {
+      const user = await User.findOne({ _id: req.user.id });
 
-      user.portfolio.unshift(req.body)
+      user.portfolio.unshift(req.body);
 
-      await user.save()
-      res.json(user)
-    }
-    catch(err){
-      res.status(500).json({msg: err.message})
+      await user.save();
+      res.json(user);
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
     }
   },
 
   // The section of the payment transactions
-  payment:async (req, res) => {
-    try{
-      const user = await User.findOne({_id: req.user.id})
+  payment: async (req, res) => {
+    try {
+      const user = await User.findOne({ _id: req.user.id });
 
+      user.portfolio.map((item) => {
+        return item.transactions.unshift(req.body);
+      });
 
-      user.portfolio.map(item => {
-        return item.transactions.unshift(req.body)
-      })
-
-      await user.save()
-      res.json({msg: "Transaction Successful ", user})
-    }
-    catch(err){
-      res.status(500).json({msg: err.message})
+      await user.save();
+      res.json({ msg: 'Transaction Successful ', user });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
     }
   },
 
   //  The section that logs out userCtrl
-  logout: async(req, res) => {
+  logout: async (req, res) => {
     try {
-      res.clearCookie('refreshtoken', {path: '/api/refresh_token'})
-      return res.json({msg: "Logged Out"})
+      res.clearCookie('refreshtoken', { path: '/api/refresh_token' });
+      return res.json({ msg: 'Logged Out' });
     } catch (error) {
-      res.status(500).json({msg: error.message})
+      res.status(500).json({ msg: error.message });
     }
-  }
+  },
 };
 
 // ===============================================================
