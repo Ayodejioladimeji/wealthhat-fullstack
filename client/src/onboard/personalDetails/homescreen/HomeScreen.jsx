@@ -1,10 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+// PACKAGES
+
+// COMPONENTS
 import HomeServices from '../homeservice/HomeServices';
 import Topbar from '../../topbar/Topbar';
 import styles from './HomeScreen.module.css';
+import { getDataAPI } from './../../../utils/fetchData';
+import { useContext } from 'react';
+import { Context } from './../../../Context';
 
 const HomeScreen = ({ navigation }) => {
+  const state = useContext(Context);
+  const [token] = state.token;
+
+  // LOGOUT USER
+  const logoutUser = async () => {
+    await getDataAPI('logout', token);
+    localStorage.removeItem('firstLogin');
+
+    window.location.href = '/';
+  };
+
   return (
     <>
       <Topbar title='Continue your investment journey with WealthHat' />
@@ -14,15 +31,9 @@ const HomeScreen = ({ navigation }) => {
         </div>
 
         <div className={styles.homescreen_bottom}>
-          <Link to='/dashboard/profile'>
-            <button
-              style={{ visibility: 'hidden' }}
-              id={styles.buttons}
-              className='btn px-4'
-            >
-              EXIT
-            </button>
-          </Link>
+          <button onClick={logoutUser} id={styles.buttons} className='btn px-4'>
+            EXIT
+          </button>
 
           <button
             id={styles.button}
