@@ -1,0 +1,150 @@
+.sidebar {
+  height: 100%;
+  background: var(--white);
+  position: fixed;
+  max-width: 230px;
+  width: 100%;
+  transform: translate(0);
+  z-index: 999999999999;
+  box-shadow: var(--shadoos);
+}
+
+.sidebar_header {
+  box-shadow: var(--shadoos);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar_header img {
+  object-fit: cover;
+  width: 90px;
+}
+
+.sidebar_middle {
+  overflow-y: auto;
+  height: 100%;
+  padding-bottom: 50px;
+}
+
+.sidebar_middle::-webkit-scrollbar {
+  height: 50px;
+  display: none;
+}
+
+.sidebarList {
+  list-style: none;
+  padding: 5px 0 5px 5px;
+  transition: var(--transition);
+}
+
+.sidebarList a {
+  text-decoration: none;
+}
+
+.sidebarListItems {
+  padding: 10px 8px 10px 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px; 
+  color: var(--black);
+  transition: var(--transition);
+  font-size: var(--font-smalling);
+}
+
+.sidebarListItem {
+  padding: 8px 8px 10px 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: var(--black);
+  transition: var(--transition);
+  font-size: var(--font-smalling);
+  margin-top: 10px;
+}
+
+.sidebarListItemm {
+  padding: 8px 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--black);
+  transition: var(--transition);
+  font-size: var(--font-smalling);
+  margin-top: 10px;
+}
+
+.innerList {
+  transition: var(--transition);
+}
+
+.innerListItem {
+  padding: 8px 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  color: var(--black);
+  transition: var(--transition);
+  font-size: var(--font-smalling);
+}
+
+.active {
+  border-right: 3px solid var(--primary);
+  color: var(--primary);
+  transition: var(--transition);
+  /* font-weight: 600; */
+  background: var(--agree);
+}
+
+.sidebarListItem:hover,
+.innerListItem:hover,
+.sidebarListItemm:hover {
+  background: var(--agree);
+  color: var(--primary);
+}
+
+.sidebarIcon {
+  margin-right: 10px;
+  font-size: var(--font-smalling);
+  font-weight: bold;
+}
+
+.name_box {
+  background: var(--primary);
+  color: var(--white);
+  padding: 5px;
+  border-radius: 50%;
+  font-size: var(--font-smallest);
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.name_div small {
+  display: block;
+  text-align: center;
+  font-size: var(--font-small);
+  font-weight: 600;
+}
+
+.name_div {
+  font-size: var(--font-smalling);
+  text-align: center;
+}
+
+.chevron {
+  font-size: var(--font-smaller);
+  color: var(--primary);
+  margin-right:6px;
+}

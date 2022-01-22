@@ -1,0 +1,97 @@
+.project {
+  padding: 10px;
+}
+
+.project p {
+  font-weight: 600;
+  font-size: var(--font-smalling);
+}
+
+.project_graph {
+  overflow: auto;
+}
+
+.project_graph::-webkit-scrollbar {
+  display: none;
+}
+
+.project_result {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  margin-bottom: 10px;
+}
+
+.result_div {
+  padding: 15px;
+  width: 100%;
+}
+
+.result_div small {
+  display: block;
+  color: var(--non-active);
+}
+
+.result_div span {
+  font-weight: 600;
+}
+
+/* ============================= */
+/* THE SECTION OF ALLOCATION */
+
+.setup_buttons {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  justify-content: space-between;
+}
+
+#button {
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 3px !important;
+  margin-top: 10px;
+  width: 120px;
+  padding: 8px;
+  border: none;
+}
+
+#buttons {
+  background: var(--white);
+  border: 1px solid var(--primary);
+  border-radius: 3px !important;
+  margin-top: 10px;
+  color: var(--primary);
+  width: 120px;
+  padding: 8px;
+}
+
+@media screen and (min-width: 1200px) {
+  .project {
+    padding: 10px 50px;
+  }
+
+  .project_result {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 499px) {
+  .setup_buttons {
+    flex-direction: row;
+  }
+
+  .project {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 299px) {
+  .setup_buttons {
+    flex-direction: column;
+  }
+  .project {
+    padding: 10px;
+  }
+}

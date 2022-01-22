@@ -1,0 +1,74 @@
+.project_div_graph {
+  height: 300px;
+  width: 100%;
+  box-shadow: var(--shadoos);
+  margin-bottom: 30px;
+  padding-right: 10px;
+}
+
+.project_table {
+  padding: 20px;
+  box-shadow: var(--shadoos);
+}
+
+.allocate_table thead th {
+  font-size: var(--font-small);
+  color: var(--tetiary);
+}
+
+.allocate_table tbody td {
+  font-size: var(--font-smalling);
+  color: var(--black);
+}
+
+.setup_buttons {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  justify-content: space-between;
+}
+
+#button {
+  background: var(--primary);
+  color: var(--white);
+  margin-top: 10px;
+  border: none;
+}
+
+#buttons {
+  background: var(--white);
+  border: 1px solid var(--primary);
+  margin-top: 10px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+@media screen and (min-width: 300px) and (max-width: 499px) {
+  .setup_buttons {
+    flex-direction: row;
+  }
+
+  .project_table {
+    overflow: auto;
+    padding: 20px 5px;
+  }
+
+  .allocate_table table {
+    width: 60rem;
+  }
+}
+
+@media screen and (max-width: 299px) {
+  .setup_buttons {
+    flex-direction: column;
+  }
+
+  .project_table {
+    overflow: auto;
+    padding: 20px 5px;
+  }
+  .allocate_table table {
+    width: 60rem;
+  }
+}

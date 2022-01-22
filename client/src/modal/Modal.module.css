@@ -1,0 +1,70 @@
+.modalBackground{
+    width:100vw;
+    height:100vh;
+    background:rgba(17,15,15,0.493);
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    z-index:9999999999999999999999999999999999999999999999;
+}
+
+.modalContainer{
+    width:97%;
+    max-width:600px;
+    border-radius:10px;
+    background:var(--white);
+    box-shadow:var(--shadoos);
+    padding:10px;
+    text-align: center;
+}
+
+.check{
+    height:50px;
+    width:50px;
+    background:var(--agree);
+    border-radius:50%;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    margin:30px auto;
+    border:1px solid var(--primary);
+    color:var(--primary)
+
+}
+
+.modalContainer h3{
+    color:var(--primary);
+    font-size:var(--font-med);
+    margin-bottom:20px;
+}
+
+.modalContainer p{
+    color:var(--non-black);
+    font-size:var(--font-smalling);
+    margin-bottom:30px;
+}
+
+.modalContainer button{
+    background:var(--primary);
+    color:var(--white);
+    padding:10px 20px;
+    outline:none;
+    border:none;
+    margin-bottom:30px;
+}
+
+.modalContainer button:hover{
+    color:var(--white)
+}
+
+
+/* The media query */
+@media screen and (min-width:1000px){
+    .modalContainer{
+        width:90%
+    }
+}

@@ -1,0 +1,19 @@
+.topbar {
+  background: var(--white);
+  box-shadow: var(--shadoos);
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  padding: 13px 5px 5px 5px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 99999999;
+}
+
+/* THE SECTION OF THE MEDIA QUERY */
+@media screen and (max-width: 500px) {
+  .topbar {
+    font-size: var(--font-smalling);
+  }
+}

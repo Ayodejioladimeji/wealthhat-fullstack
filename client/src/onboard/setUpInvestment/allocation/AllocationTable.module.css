@@ -1,0 +1,21 @@
+.allocate_table thead th {
+  font-size: var(--font-small);
+  color: var(--tetiary);
+}
+
+.allocate_table tbody td {
+  font-size: var(--font-smalling);
+  color: var(--black);
+}
+
+@media screen and (min-width: 300px) and (max-width: 499px) {
+  .allocate_table table {
+    width: 60rem;
+  }
+}
+
+@media screen and (max-width: 299px) {
+  .allocate_table table {
+    width: 60rem;
+  }
+}
