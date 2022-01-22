@@ -4,9 +4,7 @@ import HomeServices from '../homeservice/HomeServices';
 import Topbar from '../../topbar/Topbar';
 import styles from './HomeScreen.module.css';
 
-
 const HomeScreen = ({ navigation }) => {
-
   return (
     <>
       <Topbar title='Continue your investment journey with WealthHat' />
@@ -17,7 +15,11 @@ const HomeScreen = ({ navigation }) => {
 
         <div className={styles.homescreen_bottom}>
           <Link to='/dashboard/profile'>
-            <button style={{visibility: 'hidden' }} id={styles.buttons} className='btn px-4'>
+            <button
+              style={{ visibility: 'hidden' }}
+              id={styles.buttons}
+              className='btn px-4'
+            >
               EXIT
             </button>
           </Link>

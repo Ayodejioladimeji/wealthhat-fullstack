@@ -1,9 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
 
 // COMPONENTS
-import { postDataAP } from './utils/fetchData';
+import { postDataAPI } from './utils/fetchData';
 import UserApi from './api/UserApi';
-import axios from 'axios';
 
 export const Context = createContext();
 
@@ -24,10 +23,7 @@ export const ContextProvider = ({ children }) => {
     if (firstLogin) {
       const refreshToken = async () => {
         try {
-          // const res = await postDataAP('refresh_token');
-          const res = await axios.post(
-            'https://wealth-hat.herokuapp.com/api/refresh_token'
-          );
+          const res = await postDataAPI('refresh_token');
           setToken(res.data['access_token']);
 
           setTimeout(() => {
