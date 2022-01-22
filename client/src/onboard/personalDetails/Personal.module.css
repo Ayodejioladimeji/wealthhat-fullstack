@@ -2,6 +2,7 @@
   padding-top: 70px;
   background: var(--light);
   padding-bottom: 20px;
+  overflow: auto;
 }
 
 .personal_top {

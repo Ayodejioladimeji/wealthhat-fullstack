@@ -156,7 +156,7 @@ const PersonalInfo = ({ handleChange, data }) => {
             <div className={styles.form_group}>
               <label htmlFor='phone'>Phone number</label>
               <input
-                type='text'
+                type='number'
                 id='phone'
                 name='phone'
                 value={phone}

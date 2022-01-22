@@ -1,6 +1,11 @@
 .homescreen {
   padding-top: 80px;
   background: var(--light);
+  overflow: auto;
+}
+
+.homescreen::-webkit-scrollbar {
+  display: none;
 }
 
 .homescreen_top {

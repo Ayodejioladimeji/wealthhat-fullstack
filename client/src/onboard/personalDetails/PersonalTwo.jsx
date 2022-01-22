@@ -4,6 +4,7 @@ import styles from './Personal.module.css';
 import BankDetails from './bankdetails/BankDetails';
 
 const PersonalTwo = ({ navigation, handleChange, data }) => {
+  const { bvn, accountNumber, bank } = data;
   return (
     <>
       <Topbar title='Bank Details' />
@@ -25,6 +26,7 @@ const PersonalTwo = ({ navigation, handleChange, data }) => {
             id={styles.button}
             className='btn px-4'
             onClick={() => navigation.next()}
+            disabled={!bvn || !accountNumber || !bank ? true : false}
           >
             CONTINUE
           </button>

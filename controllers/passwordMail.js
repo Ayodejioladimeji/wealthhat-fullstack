@@ -151,7 +151,7 @@ const sendEmail = (to, url, txt) => {
     
     
             <small
-              style="font-family: monospace; margin-top: 40px">
+              style="font-family: monospace; font-size:12px; margin-top: 40px">
               Sincerely, <br />
               The WealthHat Team
             </small

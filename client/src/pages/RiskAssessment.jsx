@@ -3,13 +3,11 @@ import { useHistory } from 'react-router';
 import Topbar from '../onboard/topbar/Topbar';
 import styles from '../styles/RiskAssessment.module.css';
 
-
 const RiskAssessment = () => {
   const history = useHistory();
 
-
   const save = () => {
-      history.push('/onboarding/risk_profile');
+    history.push('/onboarding/risk_profile');
   };
 
   return (
@@ -24,7 +22,7 @@ const RiskAssessment = () => {
             We’re going to ask you some questions to find out how you feel about
             risk. The questionnaire is designed to assess your investment
             profile and aid in building a customized and personalized WealthHat
-            in vestment portfolio best suited for you. This short questions help
+            investment portfolio best suited for you. This short questions help
             measure your sensitivity to risk, your investment time frame, stage
             of life, financial situation, and investment objective. Remember,
             there are no right or wrong answers - just what’s ideal for you!
