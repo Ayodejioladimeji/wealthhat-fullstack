@@ -1,4 +1,4 @@
-import React, {useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 // PACKAGES
 import {
@@ -22,34 +22,31 @@ import { GrUserSettings } from 'react-icons/gr';
 import { NavLink } from 'react-router-dom';
 import styles from './Sidebar.module.css';
 
-
-
 // COMPONENTS
 import wealth from '../../../assets/wealth2.png';
 import { Context } from '../../../Context';
 import { getDataAPI } from '../../../utils/fetchData';
 
-
-
-
 const Sidebar = () => {
-  const state = useContext(Context)
-  const [token] = state.token
+  const state = useContext(Context);
+  const [token] = state.token;
+  const [isOpen] = state.isOpen;
+
   // The section that handles the dropdown
   const [one, setOne] = useState(false);
   const [two, setTwo] = useState(false);
   const [three, setThree] = useState(false);
 
   // LOGOUT USER
-  const logoutUser = async() => {
-    await getDataAPI('logout', token)
-    localStorage.removeItem('firstLogin')
+  const logoutUser = async () => {
+    await getDataAPI('logout', token);
+    localStorage.removeItem('firstLogin');
 
-    window.location.href="/"
-  }
+    window.location.href = '/';
+  };
 
   return (
-    <div className={styles.sidebar}>
+    <div className={isOpen ? styles.hide_sidebar : styles.sidebar}>
       <div className={styles.sidebar_header}>
         <img src={wealth} alt='wealth' />
       </div>
@@ -242,11 +239,8 @@ const Sidebar = () => {
           </li>
 
           <li className={styles.sidebarListItem} onClick={logoutUser}>
-           
-              <FaSignOutAlt className={styles.sidebarIcon} />
-              Signout
-          
-
+            <FaSignOutAlt className={styles.sidebarIcon} />
+            Signout
           </li>
         </ul>
       </div>

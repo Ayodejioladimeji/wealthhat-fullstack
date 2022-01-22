@@ -40,7 +40,7 @@ body {
   --font-smalling: 13px;
   --font-small: 15px;
   --font-medium: 17px;
-  --font-med:20px;
+  --font-med: 20px;
   --font-mid: 23px;
   --font-big: 25px;
   --font-large: 30px;
@@ -147,7 +147,7 @@ button:focus {
 }
 
 .responsive {
-  padding: 0px ;
+  padding: 0px;
   flex: 4;
   width: 100%;
   margin-left: 0px;
@@ -163,20 +163,24 @@ button:focus {
   transition: var(--transition);
 }
 
-.menu{
-  display:none;
-  justify-content:flex-end;
+.menu {
+  display: none;
+  justify-content: space-between;
   align-items: center;
-  height:40px;
-  padding-right:30px;
-  box-shadow:var(--shadoos);
-  font-size:20px;
-  color:var(--primary);
-  font-weight:bold;
-  cursor:pointer
+  height: 50px;
+  padding: 5px 30px;
+  box-shadow: var(--shadoos);
+  font-size: 20px;
+  color: var(--primary);
+  font-weight: bold;
+  cursor: pointer;
 }
 
-
+.menu img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
 
 @media screen and (min-width: 900px) {
   .responsive {
@@ -185,9 +189,9 @@ button:focus {
   }
 }
 
-@media screen and (max-width:900px){
-  .menu{
-    display:flex;
+@media screen and (max-width: 900px) {
+  .menu {
+    display: flex;
   }
 }
 
