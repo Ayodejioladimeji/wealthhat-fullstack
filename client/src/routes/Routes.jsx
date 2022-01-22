@@ -22,6 +22,7 @@ import Refer from './../dashboard/pages/Refer';
 import Help from './../dashboard/pages/Help';
 import Verification from '../pages/Verification';
 import ActivationEmail from './../components/activation/ActivationEmail';
+// import Route from './Route';
 import PrivateRoute from './PrivateRoute';
 
 const Routes = () => {
@@ -38,14 +39,14 @@ const Routes = () => {
       <Route path='/home' exact component={Home} />
       <Route path='/forgot_password' exact component={ForgotPassword} />
       <Route path='/api/reset/:token' exact component={ResetPassword} />
-      <Route path='/onboarding' exact component={Onboarding} />
-      <PrivateRoute
+      <PrivateRoute path='/onboarding' exact component={Onboarding} />
+      <Route
         path='/onboarding/risk_assessment'
         exact
         component={RiskAssessment}
       />
-      <PrivateRoute path='/onboarding/risk_profile' exact component={RiskProfile} />
-      <PrivateRoute
+      <Route path='/onboarding/risk_profile' exact component={RiskProfile} />
+      <Route
         path='/onboarding/setup_investment'
         exact
         component={SetupInvestment}
@@ -55,20 +56,20 @@ const Routes = () => {
       {/* DASHBOARD SECTION */}
 
       <Route path='/dashboard_home' exact component={Dashboard} />
-      <PrivateRoute path='/dashboard/profile' exact component={Profile} />
-      <PrivateRoute path='/dashboard/settings' exact component={Settings} />
-      <PrivateRoute path='/dashboard/pay_in' exact component={PayIn} />
-      <PrivateRoute path='/dashboard/withdrawal' exact component={withdrawal} />
-      <PrivateRoute
+      <Route path='/dashboard/profile' exact component={Profile} />
+      <Route path='/dashboard/settings' exact component={Settings} />
+      <Route path='/dashboard/pay_in' exact component={PayIn} />
+      <Route path='/dashboard/withdrawal' exact component={withdrawal} />
+      <Route
         path='/dashboard/investment_portfolio'
         exact
         component={InvestmentPortfolio}
       />
-      <PrivateRoute path='/dashboard/cash_portfolio' exact component={CashPortfolio} />
-      <PrivateRoute path='/dashboard/transfer' exact component={Transfer} />
-      <PrivateRoute path='/dashboard/activity' exact component={Activity} />
-      <PrivateRoute path='/dashboard/help' exact component={Help} />
-      <PrivateRoute path='/dashboard/refer' exact component={Refer} />
+      <Route path='/dashboard/cash_portfolio' exact component={CashPortfolio} />
+      <Route path='/dashboard/transfer' exact component={Transfer} />
+      <Route path='/dashboard/activity' exact component={Activity} />
+      <Route path='/dashboard/help' exact component={Help} />
+      <Route path='/dashboard/refer' exact component={Refer} />
     </Switch>
   );
 };
