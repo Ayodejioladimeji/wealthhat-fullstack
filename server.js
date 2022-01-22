@@ -28,9 +28,9 @@ mongoose.connect(
   }
 );
 
-app.get('/', (req, res) => {
-  res.send('Welcome to wealth hat homepage');
-});
+// app.get('/', (req, res) => {
+//   res.send('Welcome to wealth hat homepage');
+// });
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
