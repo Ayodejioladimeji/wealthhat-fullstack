@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 // PACKAGES
 
@@ -10,16 +10,15 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const [drop, setDrop] = useState(false)
-  const clickRef = useRef()
+  const [drop, setDrop] = useState(false);
+  const clickRef = useRef();
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
   }, []);
 
-
-   //   The handleClick outside function
-   const handleClickOutside = (e) => {
+  //   The handleClick outside function
+  const handleClickOutside = (e) => {
     if (clickRef.current && !clickRef.current.contains(e.target)) {
       setDrop(false);
     }
@@ -28,7 +27,9 @@ const Home = () => {
   return (
     <div className={styles.home}>
       <div className={styles.home_one}>
-        <p>Ayodeji's Portfolio</p>
+        <div>
+          <b>Ayodeji's Portfolio</b>
+        </div>
         <small>Last updated: 22 Oct, 2021</small>
       </div>
 
@@ -54,21 +55,26 @@ const Home = () => {
       <div className={styles.home_three}>
         <div className={styles.port_value} ref={clickRef}>
           <p>Portfolio value</p>
-          <BsThreeDotsVertical className={styles.dots} onClick={() => setDrop(!drop)}/>
+          <BsThreeDotsVertical
+            className={styles.dots}
+            onClick={() => setDrop(!drop)}
+          />
         </div>
-        <Graph/>
+        <Graph />
 
-        {drop && <div className={styles.drop_downs}>
-          <ul>
-              <Link to="/">
-                  <li>Portfolio value and allocation</li>
+        {drop && (
+          <div className={styles.drop_downs}>
+            <ul>
+              <Link to='/'>
+                <li>Portfolio value and allocation</li>
               </Link>
-          </ul>
-      </div>}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className={styles.home_four}>
-        <Port/>
+        <Port />
       </div>
     </div>
   );

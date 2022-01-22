@@ -7,6 +7,20 @@
   transform: translate(0);
   z-index: 999999999999;
   box-shadow: var(--shadoos);
+  transition: var(--transition);
+  overflow: auto;
+}
+
+.hide_sidebar {
+  height: 100%;
+  background: var(--white);
+  position: fixed;
+  max-width: 230px;
+  width: 100%;
+  transform: translate(0);
+  z-index: 999999999999;
+  transform: translate(-100%);
+  transition: var(--transition);
 }
 
 .sidebar_header {
@@ -49,7 +63,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
   color: var(--black);
   transition: var(--transition);
   font-size: var(--font-smalling);
@@ -146,5 +160,5 @@
 .chevron {
   font-size: var(--font-smaller);
   color: var(--primary);
-  margin-right:6px;
+  margin-right: 6px;
 }
