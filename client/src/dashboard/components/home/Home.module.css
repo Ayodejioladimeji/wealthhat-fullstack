@@ -91,3 +91,16 @@
 .drop_downs a:hover {
   color: var(--primary);
 }
+
+/* THE SECTION OF THE MEDIA QUERY */
+@media screen and (max-width: 650px) {
+  .home_two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .home_two {
+    grid-template-columns: 1fr;
+  }
+}
