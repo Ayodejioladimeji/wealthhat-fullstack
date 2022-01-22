@@ -11,13 +11,16 @@
   overflow: auto;
 }
 
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
 .hide_sidebar {
   height: 100%;
   background: var(--white);
   position: fixed;
   max-width: 230px;
   width: 100%;
-  transform: translate(0);
   z-index: 999999999999;
   transform: translate(-100%);
   transition: var(--transition);
